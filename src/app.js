@@ -42,11 +42,29 @@ const PORT = process.env.PORT ?? 3008
 
 
 const cotizacion1 = addKeyword('1').addAnswer('Estas son algunos ejemplos:', null, async (ctx, {flowDynamic}) => {
-            const pathLocal = join('assets','propuesta3TO.pdf')
+            const pathPropuesta1 = join('assets','presentacion1TO.pdf')
             await flowDynamic([
                 {
-                    body:"soy un pdf",
-                    media: pathLocal
+                    body:"soy un pdf1",
+                    media: pathPropuesta1
+                }
+                ]) 
+            
+        }).addAnswer(null, null, async (ctx, {flowDynamic}) => {
+            const pathPropuesta2 = join('assets','propuesta2TO.pdf')
+            await flowDynamic([
+                {
+                    body:"soy un pdf2",
+                    media: pathPropuesta2
+                }
+                ]) 
+            
+        }).addAnswer(null, null, async (ctx, {flowDynamic}) => {
+            const pathPropuesta3 = join('assets','propuesta3TO.pdf')
+            await flowDynamic([
+                {
+                    body:"soy un pdf3",
+                    media: pathPropuesta3
                 }
                 ]) 
             

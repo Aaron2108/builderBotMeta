@@ -24,7 +24,7 @@ const welcomeFlow = addKeyword(['hi', 'hello', 'hola'])
     .addAnswer(
         [
             'I share with you the following links of interest about the project',
-            '👉 *doc* to view the documentation',
+            '👉 *doca* to view the documentation',
         ].join('\n'),
         { delay: 800, capture: true },
         async (ctx, { fallBack }) => {

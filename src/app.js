@@ -45,7 +45,7 @@ const cotizacion1 = addKeyword('1').addAnswer('Estas son algunos ejemplos:', nul
             const pathPropuesta1 = join('assets','presentacion1TO.pdf')
             await flowDynamic([
                 {
-                    body:"soy un pdf1",
+                    body:"1",
                     media: pathPropuesta1
                 }
                 ]) 
@@ -54,7 +54,7 @@ const cotizacion1 = addKeyword('1').addAnswer('Estas son algunos ejemplos:', nul
             const pathPropuesta2 = join('assets','propuesta2TO.pdf')
             await flowDynamic([
                 {
-                    body:"soy un pdf2",
+                    body:"2",
                     media: pathPropuesta2
                 }
                 ]) 
@@ -63,8 +63,17 @@ const cotizacion1 = addKeyword('1').addAnswer('Estas son algunos ejemplos:', nul
             const pathPropuesta3 = join('assets','propuesta3TO.pdf')
             await flowDynamic([
                 {
-                    body:"soy un pdf3",
+                    body:"3",
                     media: pathPropuesta3
+                }
+                ]) 
+            
+        }).addAnswer(null, null, async (ctx, {flowDynamic}) => {
+            const pathPropuesta4 = join('assets','cotizacion1.pdf')
+            await flowDynamic([
+                {
+                    body:"Cotización",
+                    media: pathPropuesta4
                 }
                 ]) 
             

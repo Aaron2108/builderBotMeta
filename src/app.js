@@ -7,14 +7,13 @@ const PORT = process.env.PORT ?? 3008
 
 
 
- const welcomeFlow = addKeyword('prueba')
-     .addAction(
-         async (ctx, { flowDynamic, provider  }) => {
-             const to = ctx.from
-             await provider.sendFile(to, './assets/presentacion1TO.pdf')
-             console.log(sock);
-         }
-     )
+//  const welcomeFlow = addKeyword('prueba')
+//      .addAction(
+//          async (ctx, { flowDynamic, provider  }) => {
+//              const to = ctx.from
+//              await provider.sendFile(to, './assets/presentacion1TO.pdf')
+//          }
+//      )
 
 // const flowString = addKeyword('prueba')
 //     .addAnswer('Estas son las categorías disponibles:', null, async (ctx, {flowDynamic}) => {
@@ -105,7 +104,7 @@ const cotizacion1 = addKeyword('1').addAnswer('Estas son algunos ejemplos:', nul
 
 
 const main = async () => {
-    const adapterFlow = createFlow([flujoPrincipal,flujoAdios,welcomeFlow])
+    const adapterFlow = createFlow([flujoPrincipal,flujoAdios])
     const adapterProvider = createProvider(Provider, {
         jwtToken: 'EAAYgzcqAN3oBOxZBYiXvGgLkIqJlyrQCeootSWflbMIC7fNl0rP5vnB9WHIRHgoteto5OOZCv7CiAA3v1wYhdi4Xldx9ZCJgFPzPpTEsKeBn2s5zcNZC2KCMzSdxTHoAuHPmhVEirJM31NwlhhH1hpEKZCdNbExTFuPgHAnBlYZCK06i2A4PaZB2MCLLLYrpPkC1ZBdmdLJLzcKB46ctH12eiEJkzm2p63M22ecZD',
         numberId: '392059530655358',

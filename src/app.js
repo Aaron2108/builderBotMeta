@@ -7,7 +7,7 @@ const PORT = process.env.PORT ?? 3008
 
 
 
-const welcomeFlow = addKeyword(EVENTS.WELCOME)
+const welcomeFlow = addKeyword('prueba')
     .addAction(
         async (ctx, { flowDynamic, provider  }) => {
             const to = ctx.from

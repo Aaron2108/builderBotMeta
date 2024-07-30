@@ -41,7 +41,7 @@ const PORT = process.env.PORT ?? 3008
 //     })
 
 
-const cotizacion1 = addKeyword('1').addAnswer('Estas son algunos ejemplos:', null, async (ctx, {flowDynamic}) => {
+const cotizacion1 = addKeyword('1').addAnswer('Proyectos referenciales:', null, async (ctx, {flowDynamic}) => {
             const pathPropuesta1 = join('assets','presentacion1TO.pdf')
             await flowDynamic([
                 {
@@ -72,11 +72,10 @@ const cotizacion1 = addKeyword('1').addAnswer('Estas son algunos ejemplos:', nul
             const pathPropuesta4 = join('assets','cotizacion1.pdf')
             await flowDynamic([
                 {
-                    body:"Cotización",
+                    body:"Cotización estimada",
                     media: pathPropuesta4
                 }
                 ]) 
-            
         })
 
     const rangoInversion1 = addKeyword('1').addAnswer(['Indícame el rango de inversión que tienes proyectado:'

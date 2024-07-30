@@ -99,7 +99,7 @@ const cotizacion1 = addKeyword('1').addAnswer(``,
 
 
 const main = async () => {
-    const adapterFlow = createFlow([flujoPrincipal,flujoAdios, flow, flow2, flowString, welcomeFlow])
+    const adapterFlow = createFlow([flujoPrincipal,flujoAdios])
     const adapterProvider = createProvider(Provider, {
         jwtToken: 'EAAYgzcqAN3oBOxZBYiXvGgLkIqJlyrQCeootSWflbMIC7fNl0rP5vnB9WHIRHgoteto5OOZCv7CiAA3v1wYhdi4Xldx9ZCJgFPzPpTEsKeBn2s5zcNZC2KCMzSdxTHoAuHPmhVEirJM31NwlhhH1hpEKZCdNbExTFuPgHAnBlYZCK06i2A4PaZB2MCLLLYrpPkC1ZBdmdLJLzcKB46ctH12eiEJkzm2p63M22ecZD',
         numberId: '392059530655358',

@@ -7,14 +7,14 @@ const PORT = process.env.PORT ?? 3008
 
 
 
-// const welcomeFlow = addKeyword('prueba')
-//     .addAction(
-//         async (ctx, { flowDynamic, provider  }) => {
-//             const to = ctx.from
-//             await provider.sendFile(to, './assets/presentacion1TO.pdf')
-//             console.log(sock);
-//         }
-//     )
+ const welcomeFlow = addKeyword('prueba')
+     .addAction(
+         async (ctx, { flowDynamic, provider  }) => {
+             const to = ctx.from
+             await provider.sendFile(to, './assets/presentacion1TO.pdf')
+             console.log(sock);
+         }
+     )
 
 // const flowString = addKeyword('prueba')
 //     .addAnswer('Estas son las categorías disponibles:', null, async (ctx, {flowDynamic}) => {
@@ -42,10 +42,16 @@ const PORT = process.env.PORT ?? 3008
 //     })
 
 
-const cotizacion1 = addKeyword('1').addAnswer(``, 
-    { media: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' }
-)
-
+const cotizacion1 = addKeyword('1').addAnswer('Estas son algunos ejemplos:', null, async (ctx, {flowDynamic}) => {
+             // Enviar una imagen o pdf o etc
+            await flowDynamic([
+                {
+                    body:"soy una imagen",
+                    media:'https://repositorio.uam.es/bitstream/handle/10486/698762/menus_montero_ALVIMED_2020.pdf?sequence=4'
+                }
+                ]) 
+            
+        })
 
     const rangoInversion1 = addKeyword('1').addAnswer(['Indícame el rango de inversión que tienes proyectado:'
         ,'*1*: S/10,000 a S/15,000'
@@ -99,7 +105,7 @@ const cotizacion1 = addKeyword('1').addAnswer(``,
 
 
 const main = async () => {
-    const adapterFlow = createFlow([flujoPrincipal,flujoAdios])
+    const adapterFlow = createFlow([flujoPrincipal,flujoAdios,welcomeFlow])
     const adapterProvider = createProvider(Provider, {
         jwtToken: 'EAAYgzcqAN3oBOxZBYiXvGgLkIqJlyrQCeootSWflbMIC7fNl0rP5vnB9WHIRHgoteto5OOZCv7CiAA3v1wYhdi4Xldx9ZCJgFPzPpTEsKeBn2s5zcNZC2KCMzSdxTHoAuHPmhVEirJM31NwlhhH1hpEKZCdNbExTFuPgHAnBlYZCK06i2A4PaZB2MCLLLYrpPkC1ZBdmdLJLzcKB46ctH12eiEJkzm2p63M22ecZD',
         numberId: '392059530655358',

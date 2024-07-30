@@ -7,53 +7,44 @@ const PORT = process.env.PORT ?? 3008
 
 
 
-const welcomeFlow = addKeyword('prueba')
-    .addAction(
-        async (ctx, { flowDynamic, provider  }) => {
-            const to = ctx.from
-            await provider.sendFile(to, './assets/presentacion1TO.pdf')
-            console.log(sock);
-        }
-    )
+// const welcomeFlow = addKeyword('prueba')
+//     .addAction(
+//         async (ctx, { flowDynamic, provider  }) => {
+//             const to = ctx.from
+//             await provider.sendFile(to, './assets/presentacion1TO.pdf')
+//             console.log(sock);
+//         }
+//     )
 
-const flowString = addKeyword('prueba')
-    .addAnswer('Estas son las categorías disponibles:', null, async (ctx, {flowDynamic}) => {
-        await flowDynamic('Enviar un mensaje text')
-        // Enviar una imagen o pdf o etc
-        await flowDynamic([
-            {
-                body:"soy una imagen",
-                media:'https://repositorio.uam.es/bitstream/handle/10486/698762/menus_montero_ALVIMED_2020.pdf?sequence=4',
-                delay:1000
-            }
-        ]) 
+// const flowString = addKeyword('prueba')
+//     .addAnswer('Estas son las categorías disponibles:', null, async (ctx, {flowDynamic}) => {
+//         await flowDynamic('Enviar un mensaje text')
+//         // Enviar una imagen o pdf o etc
+//         await flowDynamic([
+//             {
+//                 body:"soy una imagen",
+//                 media:'https://repositorio.uam.es/bitstream/handle/10486/698762/menus_montero_ALVIMED_2020.pdf?sequence=4',
+//                 delay:1000
+//             }
+//         ]) 
         
-    })
+//     })
 
-const cotizacion1 = addKeyword('1').addAnswer(`Send file from URL`, 
-     { media: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' }
- )
+// const flow = addKeyword('flow1')
+//     .addAction(async (_,{flowDynamic}) => {
+//         // ...db get source...
+//         await flowDynamic([
+//             {body:'This is an pdf', media:'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'}
+//         ])
+//         await flowDynamic([
+//             {body:'This is a video', media:'https://media.giphy.com/media/KWZKwdBC2ODWlQ8kgt/giphy.mp4'}
+//         ])
+//     })
 
-const flow = addKeyword('flow1')
-    .addAction(async (_,{flowDynamic}) => {
-        // ...db get source...
-        await flowDynamic([
-            {body:'This is an pdf', media:'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'}
-        ])
-        await flowDynamic([
-            {body:'This is a video', media:'https://media.giphy.com/media/KWZKwdBC2ODWlQ8kgt/giphy.mp4'}
-        ])
-    })
 
-    const flow2 = addKeyword('flow2')
-    .addAction(async (_,{flowDynamic}) => {
-        const pathLocal = join('assets','presentacion1TO.pdf')
-        // pathLocal = c:/doc.pdf
-        await flowDynamic([
-            {body:'This is a video', media: pathLocal }
-        ])
-    })
-
+const cotizacion1 = addKeyword('1').addAnswer(``, 
+    { media: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf' }
+)
 
 
     const rangoInversion1 = addKeyword('1').addAnswer(['Indícame el rango de inversión que tienes proyectado:'

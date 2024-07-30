@@ -42,11 +42,11 @@ const PORT = process.env.PORT ?? 3008
 
 
 const cotizacion1 = addKeyword('1').addAnswer('Estas son algunos ejemplos:', null, async (ctx, {flowDynamic}) => {
-             // Enviar una imagen o pdf o etc
+            const pathLocal = join('assets','propuesta3TO.pdf')
             await flowDynamic([
                 {
-                    body:"soy una imagen",
-                    media:'https://repositorio.uam.es/bitstream/handle/10486/698762/menus_montero_ALVIMED_2020.pdf?sequence=4'
+                    body:"soy un pdf",
+                    media: pathLocal
                 }
                 ]) 
             

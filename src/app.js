@@ -82,7 +82,11 @@ const cotizacion1 = addKeyword('1').addAnswer('Proyectos referenciales:', null, 
         ,'*1*: S/10,000 a S/15,000'
         ,'*2*: S/16 000 a S/24 000'
         ,'*3*: S/25 000 a S/34 000'
-    ],null,null, [cotizacion1])
+    ], {capture:true},async (ctx, {flowDynamic}) =>{
+        if(!ctx.body.includes('1')){
+            return fallBack()
+        }
+    }, [cotizacion1])
 
 
     const rangoCotizacion1 = addKeyword('1').addAnswer(['Indícame el rango en m² que tiene tu ambiente:'
@@ -90,7 +94,11 @@ const cotizacion1 = addKeyword('1').addAnswer('Proyectos referenciales:', null, 
     ,'*2*: 6m² a 10m²'
     ,'*3*: 11m² a 15m²'
     ,'*4*: 16m² a 20m²'
-    ], null,null, [rangoInversion1])
+    ], {capture:true},async (ctx, {flowDynamic}) =>{
+        if(!ctx.body.includes('1')){
+            return fallBack()
+        }
+    }, [rangoInversion1])
 
     const flujoCotizacion1 = addKeyword('1')
     .addAnswer(['Que ambiente necesitas'
@@ -100,14 +108,16 @@ const cotizacion1 = addKeyword('1').addAnswer('Proyectos referenciales:', null, 
             ,'*4*: Sala dormitorio secundario'
             ,'*5*: Sala baño privado'
             ,'*6*: Sala baño de visitas'
-        ], null,null,[rangoCotizacion1])
+        ], {capture:true},async (ctx, {flowDynamic}) =>{
+            if(!ctx.body.includes('1')){
+                return fallBack()
+            }
+        },[rangoCotizacion1])
 
         const flujoPrincipal = addKeyword(['Hola', 'hola', 'buenas'])
         .addAnswer('hola que tal te saluda ... 😊')
         .addAnswer('¿Cual es tu nombre?', {capture:true}, async (ctx,{flowDynamic}) =>{
-            // if(!ctx.body.includes('@')){
-            //     return fallBack()
-            // }
+            
             const nombre = ctx.body;
             await flowDynamic([
                 {body:`Hola ${nombre}, en que te puedo ayudar hoy?`}
